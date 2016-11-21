@@ -4,7 +4,7 @@
 #define TAM_PLYLST 200
 #define QTD_MUSICAS 100
 
-void inicial (int logo);
+void inicial ();
 
 
 typedef struct Usuario {
@@ -37,13 +37,25 @@ int musicas[QTD_MUSICAS]; // vetor contendo os códigos das músicas
 int main() {
 
 
-    int op=1,logo;
+    int op;
 
     do{
-    inicial(logo);
+    inicial();
+    printf("Digite Uma das opcoes\n");
+    printf("1 - Para programa do ADM\n");
+    printf("2 - Para programa do Usuario\n");
     scanf("%d",&op);
 
-    }while(op!=0);
+switch(op){
+
+    case 1:
+        printf("Menu do Administrador\n");
+        break;
+    case 2:
+        printf("Menu do Usuario\n");
+        break;
+    }
+}while(op!=0);
 
 
 
@@ -53,9 +65,9 @@ int main() {
 
 
 // Estrutura do logo do programa
-void inicial (int logo){
+void inicial (){
 
-logo=0;
+
 printf("\n ___|)_________|___________");
 printf("\n|___/___|______|____");
 printf("\n|__/|___|-.__,-.________");
