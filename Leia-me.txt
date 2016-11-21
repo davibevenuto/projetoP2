@@ -3,3 +3,10 @@ Notas sobre o desenvolvimento da aplicação
 
 git commit -m "alguma coisa"
 ===== Lembrar de comitar as alterações feitas ====
+
+git pull origin master
+==== Para "puxar" os arquivos da nuvem
+
+git push origin master
+===== para "enviar" os arquivos da maquina local para nuvem
+
