@@ -1,3 +1,5 @@
 Notas sobre o desenvolvimento da aplicação
 -----------------------------------------------
 
+git commit -m "alguma coisa"
+===== Lembrar de comitar as alterações feitas ====
