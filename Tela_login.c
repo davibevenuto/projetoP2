@@ -42,24 +42,25 @@ int main() {
 
     int op;
 
-    do{
-    inicial();
-    printf("Digite Uma das opcoes:\n");
-    printf("1 - Acessar programa do ADM\n");
-    printf("2 - Acessar programa do Usuario\n");
-    printf("0 - Para sair do programa\n");
-    scanf("%d",&op);
+do{
+        system("cls");
+        inicial();
+        printf("Digite Uma das opcoes:\n");
+        printf("1 - Acessar programa do ADM\n");
+        printf("2 - Acessar programa do Usuario\n");
+        printf("0 - Para sair do programa\n");
+        scanf("%d",&op);
 
-switch(op){
+    switch(op){
 
-    case 1:
-        printf("Menu do Administrador\n");
-        Tela_ADM();
-        break;
-    case 2:
-        printf("Menu do Usuario\n");
-        Tela_User();
-        break;
+        case 1:
+            printf("Menu do Administrador\n");
+            Tela_ADM();
+            break;
+        case 2:
+            printf("Menu do Usuario\n");
+            Tela_User();
+            break;
     }
 }while(op!=0);
 
@@ -100,15 +101,56 @@ void Tela_User(){
 // Area de login do Administrador
 void Tela_ADM(){
 
-    char senha_adm[11]="m@st3r2016",Administrador[TAM_SENHA];
-    int i;
+    char senha_adm[11]={'m','@','s','t','3','r','2','0','1','6'},buffer;
+    int i,validar;
 
     printf("Por favor digite a senha do Administrador:");
-    for(i=0;i<TAM_SENHA;i++){
-    Administrador[i]=getch();
-    printf("*");
-    }
-    printf("Senha do ADM %s\n",Administrador);
 
+    for(i=0;i<TAM_SENHA||(buffer==13);i++){
+
+    buffer=getch();
+    if(isprint(buffer)!=0){
+
+    }
+    printf("*");
+    printf("senha %c\n",Administrador[i]);
+    }
+
+
+ do{
+           c=getch();
+           if(isprint(c)){     do{
+           c=getch();
+           if(isprint(c)){       //Analisa se o valor da variável c é imprimivel
+           cadastro_senha[a]=c;  //Se for, armazena o caractere
+           a++;
+           printf("*");          //imprime o * Anterisco
+           }
+           else if(c==8&&a){     //8 é o caractere BackSpace na tabela ASCII, && a analisa se a é diferente de 0
+           cadastro_senha[a]='\0';
+           a--;
+           printf("\b \b");       //Apagando o caractere digitado
+           }
+       }while(c!=13);             //13 é o valor de ENTER na tabela ASCII
+       cadastro_senha[a]='\0';
+       system("cls");
+       printf("\n\nCadastro efetuado com sucesso...\n\n");   //Analisa se o valor da variável c é imprimivel
+           cadastro_senha[a]=c;  //Se for, armazena o caractere
+           a++;
+           printf("*");          //imprime o * Anterisco
+           }
+           else if(c==8&&a){     //8 é o caractere BackSpace na tabela ASCII, && a analisa se a é diferente de 0
+           cadastro_senha[a]='\0';
+           a--;
+           printf("\b \b");       //Apagando o caractere digitado
+           }
+       }while(c!=13);             //13 é o valor de ENTER na tabela ASCII
+       cadastro_senha[a]='\0';
+       system("cls");
+       printf("\n\nCadastro efetuado com sucesso...\n\n");
+
+
+
+system("pause");
 }
 // Fim da tela de login do Administrador
