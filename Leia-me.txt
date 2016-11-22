@@ -10,3 +10,8 @@ git pull origin master
 git push origin master
 ===== para "enviar" os arquivos da maquina local para nuvem
 
+git add .
+===== Para adicionar todo conteudo alterado na pasta para ser comitado
+
+git pull origin master
+=== Baixa os arquivos do servidor
