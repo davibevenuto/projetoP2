@@ -40,6 +40,22 @@ int musicas[QTD_MUSICAS]; // vetor contendo os códigos das músicas
 int main() {
 
 
+
+FILE * arq;
+char nomeArq [ ] = "Principal";
+int status;
+arq = fopen (nomeArq, "wb");
+if (arq == NULL)
+printf("Erro ao tentar criar o arquivo %s", nomeArq);
+else {
+printf("Arquivo %s criado com sucesso", nomeArq);
+status = fclose (arq);
+if (status == 0)
+printf("Arquivo %s fechado com sucesso", nomeArq);
+else
+printf("Erro ao tentar fechar o arquivo %s", nomeArq);
+}
+
     int op;
 
 do{
@@ -101,54 +117,25 @@ void Tela_User(){
 // Area de login do Administrador
 void Tela_ADM(){
 
-    char senha_adm[11]={'m','@','s','t','3','r','2','0','1','6'},buffer;
+    char senha_adm[11]={'m','@','s','t','3','r','2','0','1','6'},buffer,senha[TAM_SENHA];
     int i,validar;
 
     printf("Por favor digite a senha do Administrador:");
 
-    for(i=0;i<TAM_SENHA||(buffer==13);i++){
+    for(i=0;i<TAM_SENHA||(buffer!=13);i++){
 
     buffer=getch();
     if(isprint(buffer)!=0){
-
+        senha[i]=buffer;
+        i++;
+        printf("*");
     }
-    printf("*");
-    printf("senha %c\n",Administrador[i]);
-    }
-
-
- do{
-           c=getch();
-           if(isprint(c)){     do{
-           c=getch();
-           if(isprint(c)){       //Analisa se o valor da variável c é imprimivel
-           cadastro_senha[a]=c;  //Se for, armazena o caractere
-           a++;
-           printf("*");          //imprime o * Anterisco
-           }
-           else if(c==8&&a){     //8 é o caractere BackSpace na tabela ASCII, && a analisa se a é diferente de 0
-           cadastro_senha[a]='\0';
-           a--;
-           printf("\b \b");       //Apagando o caractere digitado
-           }
-       }while(c!=13);             //13 é o valor de ENTER na tabela ASCII
-       cadastro_senha[a]='\0';
-       system("cls");
-       printf("\n\nCadastro efetuado com sucesso...\n\n");   //Analisa se o valor da variável c é imprimivel
-           cadastro_senha[a]=c;  //Se for, armazena o caractere
-           a++;
-           printf("*");          //imprime o * Anterisco
-           }
-           else if(c==8&&a){     //8 é o caractere BackSpace na tabela ASCII, && a analisa se a é diferente de 0
-           cadastro_senha[a]='\0';
-           a--;
-           printf("\b \b");       //Apagando o caractere digitado
-           }
-       }while(c!=13);             //13 é o valor de ENTER na tabela ASCII
-       cadastro_senha[a]='\0';
-       system("cls");
-       printf("\n\nCadastro efetuado com sucesso...\n\n");
-
+  else  if(buffer==8){
+    senha[i]='\0';
+    i--;
+    printf("\b \b");
+  }
+}
 
 
 system("pause");
