@@ -9,6 +9,8 @@
 void inicial ();
 void Tela_User();
 void Tela_ADM();
+void confere_senha(char pass[TAM_SENHA],int nivel);
+
 
 typedef struct Usuario {
 	int codigo; // autoincremento
@@ -117,27 +119,44 @@ void Tela_User(){
 // Area de login do Administrador
 void Tela_ADM(){
 
-    char senha_adm[11]={'m','@','s','t','3','r','2','0','1','6'},buffer,senha[TAM_SENHA];
-    int i,validar;
+    char buffer,senha[TAM_SENHA];
+    int i,nivel=1,sair=0;
 
     printf("Por favor digite a senha do Administrador:");
 
-    for(i=0;i<TAM_SENHA||(buffer!=13);i++){
 
-    buffer=getch();
-    if(isprint(buffer)!=0){
-        senha[i]=buffer;
-        i++;
-        printf("*");
-    }
-  else  if(buffer==8){
-    senha[i]='\0';
-    i--;
-    printf("\b \b");
+    while(i<TAM_SENHA||sair==0){
+
+        buffer=getch();
+        if(isprint(buffer)!=0){
+            senha[i]=buffer;
+            i++;
+            printf("*");
+        }
+    else  if(buffer==8){
+        senha[i]='\0';
+        i--;
+        printf("\b \b");
   }
 }
+confere_senha(senha,nivel);
 
 
 system("pause");
+}
+void confere_senha (char pass[TAM_SENHA],int nivel){
+
+    char senha_adm[11]={'m','@','s','t','3','r','2','0','1','6'};
+    int aux;
+    if(nivel==1){
+        if(strcmp(senha_adm,pass)==0){
+    printf("Login efetuado com sucesso!\n");
+        }
+        else{
+            printf("Senha invalida!");
+        }
+    }
+    system("pause");
+
 }
 // Fim da tela de login do Administrador
